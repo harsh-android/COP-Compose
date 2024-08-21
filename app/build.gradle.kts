@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt")
+    id ("com.google.dagger.hilt.android")
 }
 
 android {
@@ -47,6 +49,9 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -80,5 +85,29 @@ dependencies {
     implementation(libs.sdp.android)
 
     implementation (libs.coil.compose)
+
+
+    // Paging Compose
+    implementation (libs.accompanist.pager)
+    implementation (libs.accompanist.pager.indicators)
+
+    // Glide Image Loader
+    implementation(libs.glide) // Replace with the latest version
+    annotationProcessor(libs.compiler)
+
+    //    Retrofit Android
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Coroutines for asynchronous programming
+    implementation(libs.kotlinx.coroutines.android)
+
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
+    implementation (libs.androidx.runtime.livedata)
+
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
 }

@@ -29,7 +29,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.aviansoft.composedemo.Utils.Util
+import com.harsh.copcompose.Utils.Util
 import com.harsh.copcompose.ui.theme.COPComposeTheme
 import com.harsh.copcompose.ui.theme.PrimGradient1
 import com.harsh.copcompose.ui.theme.PrimGradient2
@@ -120,7 +120,7 @@ fun SplashPage(navController : NavHostController) {
 @Preview(showBackground = true)
 @Composable
 fun SplashPreview() {
-    ComposeDemoTheme {
+    COPComposeTheme {
         NavigationGraph()
 
     }

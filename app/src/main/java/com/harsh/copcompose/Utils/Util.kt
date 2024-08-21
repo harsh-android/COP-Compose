@@ -1,4 +1,4 @@
-package com.aviansoft.composedemo.Utils
+package com.harsh.copcompose.Utils
 
 import android.annotation.SuppressLint
 import androidx.compose.ui.geometry.Offset
