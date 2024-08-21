@@ -7,18 +7,19 @@ compiler = "4.15.1"
 converterGson = "2.9.0"
 coreSplashscreen = "1.0.1"
 glide = "4.16.0"
-hiltAndroid = "2.49"
-hiltCompiler = "2.48"
+hiltAndroid = "2.51.1"
+hiltCompiler = "2.51.1"
+hiltLifecycleViewmodel = "1.0.0-alpha03"
 hiltNavigationCompose = "1.2.0"
 kotlin = "1.9.0"
-coreKtx = "1.10.1"
+coreKtx = "1.13.1"
 junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
 kotlinxCoroutinesAndroid = "1.8.0"
-lifecycleRuntimeKtx = "2.6.1"
-activityCompose = "1.8.0"
-composeBom = "2024.04.01"
+lifecycleRuntimeKtx = "2.8.4"
+activityCompose = "1.9.1"
+composeBom = "2024.06.00"
 lifecycleViewmodelCompose = "2.8.4"
 navigationFragmentKtx = "2.7.7"
 retrofit = "2.9.0"
@@ -31,6 +32,7 @@ accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pa
 accompanist-pager = { module = "com.google.accompanist:accompanist-pager", version.ref = "accompanistPager" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+androidx-hilt-lifecycle-viewmodel = { module = "androidx.hilt:hilt-lifecycle-viewmodel", version.ref = "hiltLifecycleViewmodel" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationFragmentKtx" }
@@ -41,6 +43,7 @@ coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose"
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltCompiler" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltCompiler" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

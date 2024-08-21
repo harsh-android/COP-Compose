@@ -35,6 +35,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
@@ -65,18 +66,19 @@ import com.harsh.copcompose.Utils.Util
 import com.harsh.copcompose.ui.theme.COPComposeTheme
 import com.harsh.copcompose.ui.theme.PrimGradient1
 import com.harsh.copcompose.ui.theme.PrimGradient2
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import network.chaintech.sdpcomposemultiplatform.sdp
 import network.chaintech.sdpcomposemultiplatform.ssp
 import javax.inject.Inject
 
 
+//@AndroidEntryPoint
 class HomePage {
 
     companion object {
 
-        @Inject
-        lateinit var api: ApiInterface
+
 
         private val TAG = "HomePage"
 
@@ -119,13 +121,13 @@ class HomePage {
         fun HomeHeadBanner() {
 
             var viewModel: MainViewModel = viewModel()
-            val banners by viewModel.data.observeAsState(initial = null)
+            val banners by viewModel.banner.collectAsState()
             val pagerState = rememberPagerState(4)
             val coroutineScope = rememberCoroutineScope()
 
             // Auto scroll the pager
             LaunchedEffect(pagerState) {
-                viewModel.getHeader("Head Banner")
+                viewModel.fetchBanner("Head Banner")
                 while (true) {
                     delay(3000L)
                     val nextPage = (pagerState.currentPage + 1) % banners?.data?.size!!

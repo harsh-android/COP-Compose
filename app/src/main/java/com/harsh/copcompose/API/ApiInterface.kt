@@ -63,7 +63,7 @@ interface ApiInterface {
     @POST("banners")
     fun getBanner(
         @Field("type") type: String
-    ): Call<HeadBannerModel>
+    ): Response<HeadBannerModel>
 
     @FormUrlEncoded
     @POST("banners")

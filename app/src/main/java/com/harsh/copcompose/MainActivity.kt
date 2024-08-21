@@ -43,14 +43,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.harsh.copcompose.HomePage.Companion.HomeScreen
-import com.harsh.copcompose.MorePage.Companion.MoreScreen
-import com.harsh.copcompose.NewCarPage.Companion.NewCarScreen
+import com.harsh.copcompose.home.HomePage.Companion.HomeScreen
+import com.harsh.copcompose.home.MorePage.Companion.MoreScreen
+import com.harsh.copcompose.home.NewCarPage.Companion.NewCarScreen
 import com.harsh.copcompose.home.WishlistPage.Companion.WishlistScreen
 import com.harsh.copcompose.ui.theme.COPComposeTheme
+import dagger.hilt.EntryPoint
+import dagger.hilt.android.AndroidEntryPoint
 import network.chaintech.sdpcomposemultiplatform.sdp
 import network.chaintech.sdpcomposemultiplatform.ssp
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

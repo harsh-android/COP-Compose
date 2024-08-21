@@ -1,17 +1,29 @@
 package com.harsh.copcompose.API
 
-import com.harsh.copcompose.Utils.Util
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
+@Module
+@InstallIn(SingletonComponent::class)
 object RetrofitInstance {
-    private var BASE_URL = Util.decodeFromBase64(Util.BASE_URL)
 
-    val api: ApiInterface by lazy {
-        Retrofit.Builder()
-            .baseUrl(BASE_URL)
+    @Provides
+    @Singleton
+    fun provideRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://copapi.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ApiInterface::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideApiService(retrofit: Retrofit): ApiInterface {
+        return retrofit.create(ApiInterface::class.java)
     }
 }

@@ -7,21 +7,21 @@ import androidx.lifecycle.viewModelScope
 import com.harsh.copcompose.API.repository.Repository
 import com.harsh.copcompose.Model.HeadBannerModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor() : ViewModel() {
+class MainViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    private val repository = Repository()
+    private val _banner = MutableStateFlow<HeadBannerModel?>(null)
+    val banner: StateFlow<HeadBannerModel?> get() = _banner
 
-    private val _data = MutableLiveData<HeadBannerModel>()
-    val data: LiveData<HeadBannerModel> get() = _data
-
-
-    fun getHeader(type:String) {
+    fun fetchBanner(type:String) {
         viewModelScope.launch {
-            _data.value = repository.getBanner(type).value
+            val userResponse = repository.getBanner(type)
+            _banner.value = userResponse
         }
     }
 }
